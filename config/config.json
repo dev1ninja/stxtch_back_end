@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "stxtch_new_db",
+    "host": "localhost",
+    "dialect": "mariadb"
+  },
+  "staging": {
+    "username": "admin",
+    "password": "stxtchpass123",
+    "database": "stxtch_new_db",
+    "host": "stxtch-dev-db.caigmexpiprr.us-east-2.rds.amazonaws.com",
+    "dialect": "mariadb"
+  }
+}
