@@ -39,8 +39,8 @@ const db = {
   StoryTag,
   StoryMedia,
   Media,
-  Flag,//
-  FlagReason,//
+  Flag,
+  FlagReason,
 };
 
 
@@ -62,72 +62,18 @@ Group.hasMany(Story, {
   as: "stories",
 });
 
-User.hasMany(Flag, {//
-  foreignKey: { name: "userId", allowNull:  true},//
-  as: "flagUser",//
-});//
-Story.hasMany(Flag, {//
-  foreignKey: { name: "storyId", allowNull: false },//
-  as: "flagStory",//
-});//
-FlagReason.hasMany(Flag, {//
-  foreignKey: { name: "reasonId", allowNull: true },//
-  as: "flagReason"//
-});//
-
-/***
- * 
- * 
- * 
-  Tag.hasMany(GroupTag, {
-    foreignKey: {name: "tagId", allowNull: false},
-    as: "grouptags"
-  });
-  GroupTag.belongsTo(Tag, {as: "tag"})
-
-  Tag.hasMany(StoryTag, {
-    foreignKey: {name: "tagId", allowNull: false},
-    as: "storytags"
-  });
-  StoryTag.belongsTo(Tag, {as: "tag"})
-
-  Media.hasMany(GroupMedia, {
-    foreignKey: {name: "mediaId", allowNull: false},
-    as: "groupmedia"
-  });
-  GroupMedia.belongsTo(Media, {as: "media"})
-
-  Media.hasMany(StoryMedia, {
-    foreignKey: {name: "mediaId", allowNull: false},
-    as: "storymedia"
-  });
-  StoryMedia.belongsTo(Media, {as: "media"})
-
-  Group.hasMany(GroupTag, {
-    foreignKey: {name: "groupId", allowNull: false},
-    as: "grouptags"
-  });
-  GroupTag.belongsTo(Group, {as: "group"})
-
-  Story.hasMany(StoryTag, {
-    foreignKey: {name: "storyId", allowNull: false},
-    as: "storytags"
-  });
-  StoryTag.belongsTo(Story, {as: "story"})
-
-  Group.hasMany(GroupMedia, {
-    foreignKey: {name: "groupId", allowNull: false},
-    as: "groupmedia"
-  });
-  GroupMedia.belongsTo(Group, {as: "group"})
-
-  Story.hasMany(StoryMedia, {
-    foreignKey: {name: "storyId", allowNull: false},
-    as: "storymedia"
-  });
-  StoryMedia.belongsTo(Story, {as: "story"})
- */
-
+User.hasMany(Flag, {
+  foreignKey: { name: "userId", allowNull:  true},
+  as: "flagUser",
+});
+Story.hasMany(Flag, {
+  foreignKey: { name: "storyId", allowNull: false },
+  as: "flagStory",
+});
+FlagReason.hasMany(Flag, {
+  foreignKey: { name: "reasonId", allowNull: true },
+  as: "flagReason"
+});
 
 Tag.belongsToMany(Group, {as: 'group', through: GroupTag})
 Group.belongsToMany(Tag, {as: 'tag', through: GroupTag})
@@ -138,7 +84,6 @@ Media.belongsToMany(Group, {as: 'group', through: GroupMedia})
 Group.belongsToMany(Media, {as: 'media', through: GroupMedia})
 Media.belongsToMany(Story, {as: 'story', through: StoryMedia})
 Story.belongsToMany(Media, {as: 'media', through: StoryMedia})
-//////////////////////////////////
 Story.belongsTo(User, { as: "user" })
 Story.belongsTo(Group, { as: "group" })
 Group.belongsTo(Customer, { as: "customer" })

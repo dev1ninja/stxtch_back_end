@@ -29,7 +29,6 @@ module.exports = (sequelize, db) => {
           },
           {
             model: Media,
-            // attributes: ["url"],
             as: "media",
           },
           {
@@ -48,7 +47,6 @@ module.exports = (sequelize, db) => {
             [Op.is]: null
           }
         },
-        // group: "groups.id",
       });
       res.status(200).json({ groups });
     } catch (e) {
